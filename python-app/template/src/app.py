@@ -11,7 +11,7 @@ def info():
         {
             "time": datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"),
             "hostname": socket.gethostname(),
-            "message": "You are doing super duper whooper pooper snooper gooper chooper flooper mooper great, human!!!!!!!!",
+            "message": "You are doing super duper whooper pooper snooper gooper chooper flooper mooper great, human!!!!!!!!!",
             "deployed_on": "kubernetes",
             "env": "${{values.app_env}}",
             "app-name": "${{values.app_name}}",

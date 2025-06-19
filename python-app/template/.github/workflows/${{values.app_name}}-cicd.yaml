@@ -68,7 +68,6 @@ jobs:
           --username admin \
           --password ${{ '${{ secrets.ARGOCD_PASSWORD }}' }}
 
-
       - name: Ensure argocd repo and app
         shell: bash
         run: |
@@ -90,6 +89,11 @@ jobs:
       - name: Argocd app sync
         shell: bash
         run: |
+          argocd login argocd-server.argocd \
+          --insecure \
+          --grpc-web \
+          --username admin \
+          --password ${{ '${{ secrets.ARGOCD_PASSWORD }}' }}
           argocd app sync ${{values.app_name}}
           argocd app wait ${{values.app_name}} --timeout 180
 

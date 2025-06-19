@@ -59,7 +59,7 @@ jobs:
           chmod +x argocd-linux-amd64
           sudo mv ./argocd-linux-amd64 /usr/local/bin/argocd
 
-      - name: Argocd app sync
+      - name: Argocd login
         shell: bash
         run: |
           argocd login argocd-server.argocd \
@@ -80,7 +80,7 @@ jobs:
           argocd app get ${{values.app_name}} || argocd app create ${{values.app_name}} \
             --repo $repo \
             --path charts/${{values.app_name}} \
-            --dest-namespace ${{values.app_env}}
+            --dest-namespace ${{values.app_env}} \
             --dest-server https://kubernetes.default.svc \
             --values values-${{values.app_env}}.yaml \
             --revision main \

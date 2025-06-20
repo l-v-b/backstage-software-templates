@@ -38,7 +38,7 @@ livenessProbe:
     port: 5000
 readinessProbe:
   httpGet:
-    path: /api/v1/details
+    path: /api/v1/info
     port: 5000
 autoscaling:
   enabled: false
